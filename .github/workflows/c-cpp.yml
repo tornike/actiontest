@@ -12,4 +12,17 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: make
-      run: make
+      run: make > makeout.txt
+    - name: run
+      run: ./exec > execout.txt
+    - name: Save make output
+      uses: actions/upload-artifact@v2
+      with:
+        name: exec-output
+        path: execout.txt
+    - name: Save exec output
+      uses: actions/upload-artifact@v2
+      with:
+        name: make-output
+        path: makeout.txt
+
