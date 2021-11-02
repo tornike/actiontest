@@ -1,0 +1,18 @@
+name: Test anything
+
+on: push
+
+jobs:
+  print:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: print env
+      run: env
+    - name: AWS CLI
+      run: aws
+    - name: Ansible
+      run: ansible --version
+    - name: Docker
+      run: docker -v
