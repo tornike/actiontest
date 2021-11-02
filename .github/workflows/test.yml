@@ -11,7 +11,7 @@ jobs:
     - name: print env
       run: env
     - name: AWS CLI
-      run: aws
+      run: aws help
     - name: Ansible
       run: ansible --version
     - name: Docker
