@@ -1,0 +1,13 @@
+name: Branch Delete
+
+on:
+  delete
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: print
+      run: env
