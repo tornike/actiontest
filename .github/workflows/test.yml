@@ -23,7 +23,7 @@ jobs:
     - name: Check python
       run: which python
     - name: Check python
-      run: ls -lrt /usr/bin/python*
+      run: ls -lrt /usr/bin/python* && ls -lrt /opt/pipx/venvs/ansible-core/bin/python*
     - name: Install boto
       run: sudo pip install boto3 && sudo pip install botocore
     - name: Show boto
