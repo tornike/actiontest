@@ -22,7 +22,10 @@ jobs:
       run: >
         /opt/pipx/venvs/ansible-core/bin/python -m site &&
         /opt/pipx/venvs/ansible-core/bin/python3 -m site &&
-        /usr/bin/python3 -m site
+        /usr/bin/python3 -m site && 
+        echo =============================== &&
+        cp /opt/pipx/venvs/ansible-core/bin/python3 . &&
+        ./python3 -m site
     - name: Check python
       run: ls -lrt /usr/bin/python* && ls -lrt /opt/pipx/venvs/ansible-core/bin/
     - name: check pipx modules
