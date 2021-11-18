@@ -22,3 +22,5 @@ jobs:
       run: pip --version
     - name: Install boto
       run: pip install boto3 && pip install botocore
+    - name: Show boto
+      run: pip show botocore
