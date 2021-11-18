@@ -20,6 +20,8 @@ jobs:
       run: file /opt/pipx/venvs/ansible-core/bin/python3
     - name: Check python
       run: ls -lrt /usr/bin/python* && ls -lrt /opt/pipx/venvs/ansible-core/bin/python*
+    - name: check pipx modules
+      run: /opt/pipx/venvs/ansible-core/lib/python3.8/site-packages/
     - name: Install boto
       run: sudo pip install boto3 && sudo pip install botocore
     - name: Show boto
