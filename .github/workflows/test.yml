@@ -28,12 +28,8 @@ jobs:
         echo =============================== &&
         cat /opt/pipx/venvs/ansible-core/bin/activate* &&
         cat /opt/pipx/venvs/ansible-core/bin/Activate*
-    - name: Check python
-      run: ls -lrt /usr/bin/python* && ls -lrt /opt/pipx/venvs/ansible-core/bin/
-    - name: check pipx modules
-      run: ls -lrt /opt/pipx/venvs/ansible-core/lib/python3.8/site-packages/
     - name: Show boto
-      run: pip show boto3
+      run: pipx show boto3
     - name: test boto
       run: echo import boto3 | /usr/bin/python3
     - name: Checkout
