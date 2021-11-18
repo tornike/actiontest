@@ -14,8 +14,10 @@ jobs:
       run: env
     - name: list home dir
       run: ls -al ~/
-    - name: AWS CLI
-      run: aws --version
+    - name: Install boto
+      run: pip install boto3 && pip install botocore
+    - name: Install boto
+      run: pipx inject ansible-core boto3 --include-deps --include-apps && pipx inject ansible-core botocore --include-deps --include-apps
     - name: Ansible
       run: >
         ansible-playbook --version &&
@@ -29,10 +31,12 @@ jobs:
       run: sudo find / -iname aws_ec2.py 
     - name: find amazon cloudformation
       run: sudo find / -iname cloudformation.py
+    - name: find boto3
+      run: sudo find / -iname boto3 
+    - name: find botocore
+      run: sudo find / -iname botocore
     - name: Show pipx packages
       run: pipx list
-    - name: Install boto
-      run: pipx inject ansible-core boto3 --include-deps --include-apps && pipx inject ansible-core botocore --include-deps --include-apps
     - name: Check python
       run: ls -lr /usr/bin/python*
     - name: test boto
