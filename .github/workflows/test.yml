@@ -17,7 +17,7 @@ jobs:
     - name: Ansible
       run: ansible --version && cat /opt/pipx_bin/ansible
     - name: Install boto
-      run: pip install boto3 && pip install botocore
+      run: pipx install boto3 && pipx install botocore
     - name: Check python sites
       run: >
         /opt/pipx/venvs/ansible-core/bin/python -m site &&
