@@ -25,7 +25,7 @@ jobs:
     - name: Show boto
       run: sudo pip show boto3
     - name: test boto
-      run: echo import boto3 | /opt/pipx/venvs/ansible-core/bin/python
+      run: echo import boto3 | /opt/pipx/venvs/ansible-core/bin/python3
     - name: Checkout
       uses: actions/checkout@v2
     - name: Run ansible inventory
