@@ -10,27 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Get User
-      run: whoami
     - name: print env
       run: env
     - name: AWS CLI
       run: aws --version
     - name: Ansible
       run: ansible --version && cat /opt/pipx_bin/ansible
-    - name: Docker
-      run: docker -v
     - name: Check python
-      run: which python
+      run: file /opt/pipx/venvs/ansible-core/bin/python
     - name: Check python
       run: ls -lrt /usr/bin/python* && ls -lrt /opt/pipx/venvs/ansible-core/bin/python*
     - name: Install boto
       run: sudo pip install boto3 && sudo pip install botocore
     - name: Show boto
       run: sudo pip show boto3
-    - name: Checkout
-      uses: actions/checkout@v2
     - name: test boto
       run: echo import boto3 | /opt/pipx/venvs/ansible-core/bin/python
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Run ansible inventory
       run: ansible-inventory -i aws_ec2.yml --graph
