@@ -23,10 +23,10 @@ jobs:
     - name: Pip3 version
       run: pip3 --version
     - name: Install boto
-      run: sudo pip3 install boto3
+      run: sudo pipx install boto3
     - name: Show boto
-      run: pip3 show botocore
+      run: pipx show botocore
     - name: test boto
       run: echo import boto3 | python3
     - name: Run ansible inventory
-      run: ansible-inventory -i aws_ec2.yml --graph
+      run: ansible -a ls -i aws_ec2.yml --graph
