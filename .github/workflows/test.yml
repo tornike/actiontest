@@ -27,7 +27,7 @@ jobs:
     - name: Install boto
       run: sudo pip install boto3 && sudo pip install botocore
     - name: Show boto
-      run: pip show boto3
+      run: sudo pip show boto3
     - name: Checkout
       uses: actions/checkout@v2
     - name: test boto
