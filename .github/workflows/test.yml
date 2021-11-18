@@ -17,7 +17,7 @@ jobs:
     - name: AWS CLI
       run: aws --version
     - name: Ansible
-      run: ansible --version && cat /opt/pipx_bin/ansible
+      run: ansible-playbook --version && cat /opt/pipx_bin/ansible
     - name: Show pipx packages
       run: pipx list
     - name: Install boto
