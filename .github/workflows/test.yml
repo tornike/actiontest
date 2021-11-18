@@ -22,8 +22,8 @@ jobs:
       run: ls -l /opt/pipx/venvs/ansible-core/lib/python3.8/site-packages/ansible
     - name: Docker
       run: docker -v
-    - name: Pip version
-      run: pip --version
+    - name: Pip3 version
+      run: pip3 --version
     - name: Install boto
       run: pip install boto3
     - name: Show boto
