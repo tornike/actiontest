@@ -17,7 +17,12 @@ jobs:
     - name: AWS CLI
       run: aws --version
     - name: Ansible
-      run: ansible-playbook --version && cat /opt/pipx_bin/ansible
+      run: >
+        ansible-playbook --version &&
+        cat /opt/pipx_bin/ansible &&
+        which ansible-playbook &&
+        which ansible-inventory &&
+        which ansible
     - name: Ansible collection
       run: ls -lr /opt/pipx/venvs/ansible-core/lib/python3.8/site-packages/ansible
     - name: find amazon aws_ec2.py
@@ -36,3 +41,4 @@ jobs:
       uses: actions/checkout@v2
     - name: Run ansible inventory
       run: ansible-inventory -i aws_ec2.yml --graph
+
