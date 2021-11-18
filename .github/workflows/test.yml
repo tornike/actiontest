@@ -18,5 +18,7 @@ jobs:
       run: ansible --version
     - name: Docker
       run: docker -v
+    - name: Pip version
+      run: pip --version
     - name: Install boto
       run: pip install boto3 && pip install botocore
