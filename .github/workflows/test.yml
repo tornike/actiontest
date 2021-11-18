@@ -18,6 +18,8 @@ jobs:
       run: pip install boto3 && pip install botocore
     - name: Install boto
       run: pipx inject ansible-core boto3 --include-deps --include-apps && pipx inject ansible-core botocore --include-deps --include-apps
+    - name: pipx dir
+      run: ls -lr /opt/pipx/venvs/
     - name: Ansible
       run: >
         ansible-playbook --version &&
