@@ -16,8 +16,11 @@ jobs:
       run: aws --version
     - name: Ansible
       run: ansible --version && cat /opt/pipx_bin/ansible
-    - name: Check python
-      run: file /opt/pipx/venvs/ansible-core/bin/python3
+    - name: Check python sites
+      run: >
+        /opt/pipx/venvs/ansible-core/bin/python -m site &&
+        /opt/pipx/venvs/ansible-core/bin/python3 -m site &&
+        /usr/bin/python3 -m site
     - name: Check python
       run: ls -lrt /usr/bin/python* && ls -lrt /opt/pipx/venvs/ansible-core/bin/python*
     - name: check pipx modules
