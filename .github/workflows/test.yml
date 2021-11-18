@@ -20,8 +20,14 @@ jobs:
       run: ansible --version
     - name: Docker
       run: docker -v
+    - name: Check python
+      run: which python
+    - name: Check python
+      run: ls -lrt /usr/bin/python*
     - name: Install boto
-      run: sudo apt-get install python3-boto3
+      run: sudo pip install boto3 && sudo pip install botocore
+    - name: Show boto
+      run: pip show boto3
     - name: Checkout
       uses: actions/checkout@v2
     - name: test boto
