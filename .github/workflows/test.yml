@@ -31,4 +31,4 @@ jobs:
     - name: test boto
       run: echo import boto3 | python3
     - name: Run ansible inventory
-      run: ansible-inventory -i aws_ec2.yml --list
+      run: ansible-inventory -i inventories/aws/dev/aws_ec2.yml --graph
