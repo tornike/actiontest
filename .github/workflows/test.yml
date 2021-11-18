@@ -16,6 +16,8 @@ jobs:
       run: aws --version
     - name: Ansible
       run: ansible --version && cat /opt/pipx_bin/ansible
+    - name: Install boto
+      run: pip install boto3 && pip install botocore
     - name: Check python sites
       run: >
         /opt/pipx/venvs/ansible-core/bin/python -m site &&
@@ -25,10 +27,8 @@ jobs:
       run: ls -lrt /usr/bin/python* && ls -lrt /opt/pipx/venvs/ansible-core/bin/python*
     - name: check pipx modules
       run: ls -lrt /opt/pipx/venvs/ansible-core/lib/python3.8/site-packages/
-    - name: Install boto
-      run: sudo pip install boto3 && sudo pip install botocore
     - name: Show boto
-      run: sudo pip show boto3
+      run: pip show boto3
     - name: test boto
       run: echo import boto3 | /usr/bin/python3
     - name: Checkout
