@@ -21,6 +21,6 @@ jobs:
     - name: Pip version
       run: pip --version
     - name: Install boto
-      run: pip install boto3 && pip install botocore
+      run: sudo apt install python-boto3
     - name: Show boto
       run: pip show botocore
