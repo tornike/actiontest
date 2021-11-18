@@ -28,8 +28,6 @@ jobs:
         echo =============================== &&
         cat /opt/pipx/venvs/ansible-core/bin/activate* &&
         cat /opt/pipx/venvs/ansible-core/bin/Activate*
-    - name: Show boto
-      run: pipx show boto3
     - name: test boto
       run: echo import boto3 | /usr/bin/python3
     - name: Checkout
