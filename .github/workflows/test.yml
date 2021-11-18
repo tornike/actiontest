@@ -19,7 +19,7 @@ jobs:
     - name: Show pipx packages
       run: pipx list
     - name: Install boto
-      run: pipx inject ansible-core boto3 --include-deps && pipx inject ansible-core botocore --include-deps
+      run: pipx inject ansible-core boto3 --include-deps --include-apps && pipx inject ansible-core botocore --include-deps --include-apps
     - name: Check python sites
       run: >
         /opt/pipx/venvs/ansible-core/bin/python -m site &&
