@@ -29,4 +29,6 @@ jobs:
     - name: Show boto
       run: pip show botocore
     - name: test boto
-      run: echo import boto3 | python3 
+      run: echo import boto3 | python3
+    - name: Run ansible inventory
+      run: ansible-inventory aws_ec2.yml --list
