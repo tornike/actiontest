@@ -18,6 +18,8 @@ jobs:
       run: aws --version
     - name: Ansible
       run: ansible --version
+    - name: Ansible modules
+      run: ls -l /opt/pipx/venvs/ansible-core/lib/python3.8/site-packages/ansible
     - name: Docker
       run: docker -v
     - name: Pip version
