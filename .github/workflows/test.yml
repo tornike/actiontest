@@ -12,8 +12,8 @@ jobs:
     steps:
     - name: print env
       run: env
-    - name: list cwd
-      run: ls -al
+    - name: list home dir
+      run: ls -al ~/
     - name: AWS CLI
       run: aws --version
     - name: Ansible
