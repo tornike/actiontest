@@ -29,7 +29,7 @@ jobs:
         cat /opt/pipx/venvs/ansible-core/bin/activate* &&
         cat /opt/pipx/venvs/ansible-core/bin/Activate*
     - name: test boto
-      run: echo import boto3 | /usr/bin/python3
+      run: echo import boto3 | /opt/pipx/venvs/ansible-core/bin/python
     - name: Checkout
       uses: actions/checkout@v2
     - name: Run ansible inventory
