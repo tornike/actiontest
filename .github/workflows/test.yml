@@ -24,7 +24,7 @@ jobs:
         /opt/pipx/venvs/ansible-core/bin/python3 -m site &&
         /usr/bin/python3 -m site
     - name: Check python
-      run: ls -lrt /usr/bin/python* && ls -lrt /opt/pipx/venvs/ansible-core/bin/python*
+      run: ls -lrt /usr/bin/python* && ls -lrt /opt/pipx/venvs/ansible-core/bin/
     - name: check pipx modules
       run: ls -lrt /opt/pipx/venvs/ansible-core/lib/python3.8/site-packages/
     - name: Show boto
