@@ -22,14 +22,8 @@ jobs:
       run: pipx list
     - name: Install boto
       run: pipx inject ansible-core boto3 --include-deps --include-apps && pipx inject ansible-core botocore --include-deps --include-apps
-    - name: Check python sites
-      run: >
-        /opt/pipx/venvs/ansible-core/bin/python -m site &&
-        /opt/pipx/venvs/ansible-core/bin/python3 -m site &&
-        /usr/bin/python3 -m site && 
-        echo =============================== &&
-        cat /opt/pipx/venvs/ansible-core/bin/activate* &&
-        cat /opt/pipx/venvs/ansible-core/bin/Activate*
+    - name: Check python
+      run: ls -lr /usr/bin/python*
     - name: test boto
       run: echo import boto3 | /opt/pipx/venvs/ansible-core/bin/python
     - name: Checkout
