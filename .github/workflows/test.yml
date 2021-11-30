@@ -14,12 +14,12 @@ jobs:
       run: env
     - name: list home dir
       run: ls -al ~/
+    - name: Install certbot
+      run: apt-get install certbot python3-certbot-dns-route53
     - name: Install boto
       run: pip install boto3 && pip install botocore
     - name: Install boto
       run: pipx inject ansible-core boto3 --include-deps --include-apps && pipx inject ansible-core botocore --include-deps --include-apps
-    - name: pipx dir
-      run: ls -lr /opt/pipx/venvs/
     - name: Ansible
       run: >
         ansible-playbook --version &&
@@ -27,16 +27,6 @@ jobs:
         which ansible-playbook &&
         which ansible-inventory &&
         which ansible
-    - name: Ansible collection
-      run: ls -lr /opt/pipx/venvs/ansible-core/lib/python3.8/site-packages/ansible
-    - name: find amazon aws_ec2.py
-      run: sudo find / -iname aws_ec2.py 
-    - name: find amazon cloudformation
-      run: sudo find / -iname cloudformation.py
-    - name: find boto3
-      run: sudo find / -iname boto3 
-    - name: find botocore
-      run: sudo find / -iname botocore
     - name: Show pipx packages
       run: pipx list
     - name: Check python
