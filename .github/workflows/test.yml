@@ -14,8 +14,6 @@ jobs:
       run: echo "TEST_VAR='test value'" >> $GITHUB_ENV
     - name: print env
       run: env
-    - name: exit with success
-      run: exit 0
     - name: list home dir
       run: ls -al ~/
     - name: Install certbot
