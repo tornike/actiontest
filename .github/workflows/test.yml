@@ -30,6 +30,8 @@ jobs:
       run: ls -lr /usr/bin/python*
     - name: Checkout
       uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
     - name: Run ansible inventory
       run: ansible-inventory -i aws_ec2.yml --graph
 
