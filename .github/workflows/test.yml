@@ -1,7 +1,6 @@
 name: Test anything
 
 on:
-  - push
   - workflow_dispatch
   - pull_request
 
@@ -14,7 +13,9 @@ jobs:
     - name: Set environment variables
       run: echo "TEST_VAR='test value'" >> $GITHUB_ENV
     - name: print env
-      run: env
+      run: |
+        env
+        echo ${{ github.head_ref }}
     - name: list home dir
       run: ls -al ~/
     - name: Ansible
