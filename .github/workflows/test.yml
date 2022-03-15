@@ -3,7 +3,7 @@ name: Test anything
 on:
   workflow_dispatch:
   pull_request:
-    branches: main
+    branches: test
 
 jobs:
   print:
