@@ -17,6 +17,7 @@ jobs:
       run: |
         env
         echo ${{ github.head_ref }}
+        echo ${{ env.TEST_VAR }}
     - name: list home dir
       run: ls -al ~/
     - name: Ansible
