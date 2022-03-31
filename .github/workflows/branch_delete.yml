@@ -9,5 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: payload
+      run: echo "${{ github.event }}"
+    
     - name: print
       run: env
