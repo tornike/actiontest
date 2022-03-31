@@ -1,7 +1,8 @@
 name: Branch Delete
 
 on:
-  delete
+  delete:
+  workflow_dispatch:
 
 jobs:
   build:
