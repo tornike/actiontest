@@ -1,9 +1,9 @@
 name: Test anything
 
 on:
-  - push
-  - workflow_dispatch
-  - pull_request
+  workflow_dispatch:
+  pull_request:
+    branches: main
 
 jobs:
   print:
@@ -14,15 +14,12 @@ jobs:
     - name: Set environment variables
       run: echo "TEST_VAR='test value'" >> $GITHUB_ENV
     - name: print env
-      run: env
+      run: |
+        env
+        echo ${{ github.head_ref }}
+        echo ${{ env.TEST_VAR }}
     - name: list home dir
       run: ls -al ~/
-    - name: Install certbot
-      run: sudo apt-get install certbot python3-certbot-dns-route53
-    - name: Install boto
-      run: pip install boto3 && pip install botocore
-    - name: Install boto
-      run: pipx inject ansible-core boto3 --include-deps --include-apps && pipx inject ansible-core botocore --include-deps --include-apps
     - name: Ansible
       run: >
         ansible-playbook --version &&
@@ -34,10 +31,10 @@ jobs:
       run: pipx list
     - name: Check python
       run: ls -lr /usr/bin/python*
-    - name: test boto
-      run: echo import boto3 | /opt/pipx/venvs/ansible-core/bin/python
     - name: Checkout
       uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
     - name: Run ansible inventory
       run: ansible-inventory -i aws_ec2.yml --graph
 
