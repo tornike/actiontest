@@ -20,6 +20,8 @@ jobs:
         env
         echo ${{ github.head_ref }}
         echo ${{ env.TEST_VAR }}
+    - name: list cur dir
+      run: ls -al
     - uses: actions/checkout@v2
     - name: list cur dir
       run: ls -al
