@@ -20,6 +20,7 @@ jobs:
         env
         echo ${{ github.head_ref }}
         echo ${{ env.TEST_VAR }}
+    - uses: actions/checkout@v2
     - name: list home dir
       run: ls -al ~/
     - name: Ansible
