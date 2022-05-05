@@ -19,7 +19,6 @@ jobs:
     - name: print env
       run: |
         env
-        echo ${{ github.head_ref }}
         echo ${{ env.TEST_VAR }}
     - run: |
         echo ${{ github.ref }}
