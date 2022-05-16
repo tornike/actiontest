@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: print event
-      run: echo "${{ toJSON(github.event) }}"
+      run: echo "${{ toJSON(github.event.pull_request) }}"
     - name: Inject slug/short variables
       uses: rlespinasse/github-slug-action@v4
     - name: Set environment variables
