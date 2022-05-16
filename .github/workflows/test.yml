@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: print event
+      run: echo ${{ github.event }}
     - name: Inject slug/short variables
       uses: rlespinasse/github-slug-action@v4
     - name: Set environment variables
