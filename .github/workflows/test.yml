@@ -14,6 +14,8 @@ jobs:
     steps:
     - name: print event
       run: echo "${{ toJSON(github.event.pull_request) }}"
+    - name: print pr number
+      run: echo "${{ github.event.pull_request.number }}"
     - name: Inject slug/short variables
       uses: rlespinasse/github-slug-action@v4
     - name: Set environment variables
