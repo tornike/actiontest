@@ -30,8 +30,12 @@ jobs:
     - name: list cur dir
       run: ls -al
     - uses: actions/checkout@v2
+      with:
+        path: actiontest
     - name: list cur dir
       run: ls -al
+    - name: move to repo dir
+      run: cd actiontest
     - name: print git config
       run: git config --list
     - name: print git branches
