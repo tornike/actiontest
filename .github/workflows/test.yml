@@ -19,7 +19,10 @@ jobs:
     - name: Inject slug/short variables
       uses: rlespinasse/github-slug-action@v4
     - name: Set environment variables
-      run: echo "TEST_VAR='test value'" >> $GITHUB_ENV
+      run: |
+        export TEST_VAR='test value'
+        echo "TEST_VAR=$TEST_VAR" >> $GITHUB_ENV
+        echo ${{ env.TEST_VAR }}
     - name: print env
       run: |
         env
