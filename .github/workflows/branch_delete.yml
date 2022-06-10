@@ -12,8 +12,9 @@ jobs:
     steps:
     - name: payload
       run: |
-        echo "${{ github.event.ref }}"
-        echo "${{ github.event.ref_type }}"
+        echo "GITHUB_SHA is ${{ github.sha }}"
+        echo "GITHUB_REF is ${{ github.ref }}"
+        echo "${{ github.event.ref }} - ${{ github.event.ref_type }}"
     
     - name: print
       run: env
