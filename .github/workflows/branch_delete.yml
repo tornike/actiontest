@@ -17,3 +17,7 @@ jobs:
     
     - name: print
       run: env
+      
+    - uses: actions/checkout@v3
+    
+    - run: git status
