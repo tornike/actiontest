@@ -30,13 +30,23 @@ jobs:
     - run: |
         echo ${{ github.ref }}
         echo ${{ github.head_ref }}
+    - name: create file in cur dir
+      run: |
+        touch test.txt
     - name: list cur dir
-      run: ls -al
+      run: |
+        pwd
+        ls -al
     - uses: actions/checkout@v2
       with:
         path: actiontest
     - name: list cur dir
-      run: ls -al
+      run: |
+        pwd
+        ls -al
+    - name: list parent dir
+      run: |
+        ls -al ../
     - name: move to repo dir
       run: cd actiontest
     - name: print git config
