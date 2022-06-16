@@ -30,18 +30,21 @@ jobs:
     - run: |
         echo ${{ github.ref }}
         echo ${{ github.head_ref }}
-    - name: create file in cur dir
+    - name: create file in tmp dir
       run: |
         touch test.txt
-    - name: list cur dir
+      working-directory: ../tmp
+    - name: list cur and ../tmp dir
       run: |
         pwd
         ls -al
+        ls -al ../tmp
     - uses: actions/checkout@v2
-    - name: list cur dir
+    - name: list cur and ../tmp dir
       run: |
         pwd
         ls -al
+        ls -al ../tmp
     - name: list parent dir
       run: |
         ls -al ../
