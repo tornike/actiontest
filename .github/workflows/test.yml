@@ -32,8 +32,8 @@ jobs:
         echo ${{ github.head_ref }}
     - name: create file in tmp dir
       run: |
-        touch test.txt
-      working-directory: ../tmp
+        mkdir ../tmp
+        touch ../tmp/test.txt
     - name: list cur and ../tmp dir
       run: |
         pwd
