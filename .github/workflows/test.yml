@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: print php and node version
+      run: php -v && node -v
     - name: print event
       run: echo "${{ toJSON(github.event.pull_request) }}"
     - name: print pr number
