@@ -11,13 +11,31 @@ on:
   push:
 
 jobs:
+  environment:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Set environment as variable
+      id: input_check
+      run: |
+        if [ -n "${{ inputs.environment }}" ]
+        then
+          echo "::set-output name=gh_env::${{ inputs.environment }}"
+        else
+          echo "::set-output name=gh_env::dev"
+        fi
+        
+    outputs:
+      GH_ENVIRONMENT: ${{ steps.input_check.outputs.gh_env }}
+      
   print:
-    environment: ${{ inputs.environment }}
+    needs: environment
+    environment: ${{ needs.environment.outputs.GH_ENVIRONMENT }}
     runs-on: ubuntu-latest
 
     steps:
     - name: Print Environment
-      run: echo ${{ inputs.environment }}
+      run: echo ${{ needs.environment.outputs.GH_ENVIRONMENT }}
     - name: Print Environment variable
       run: echo ${{ secrets.TEST_ENV_VALUE }}
     - name: print php and node version
