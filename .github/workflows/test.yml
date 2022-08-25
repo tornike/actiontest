@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Print Environment variable
+      run: echo $TEST_ENV_VALUE
     - name: print php and node version
       run: php -v && node -v
     - name: print event
