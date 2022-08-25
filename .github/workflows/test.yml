@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Print Environment
+      run: echo ${{ inputs.environment }}
     - name: Print Environment variable
       run: echo ${{ secrets.TEST_ENV_VALUE }}
     - name: print php and node version
