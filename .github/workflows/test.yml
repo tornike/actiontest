@@ -12,7 +12,7 @@ on:
 
 jobs:
   print:
-
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
 
     steps:
