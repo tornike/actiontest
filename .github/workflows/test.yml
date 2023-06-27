@@ -34,22 +34,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: print github context from ansible
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: ansible-playbook -i localhost, -e "$GITHUB_CONTEXT" playbook.yml
     - name: Print Environment
       run: echo ${{ needs.environment.outputs.GH_ENVIRONMENT }}
-    - name: Print Environment variable
-      run: echo ${{ secrets.TEST_ENV_VALUE }}
-    - name: print php and node version
-      run: php -v && node -v
     - name: print event
       run: echo "${{ toJSON(github.event.pull_request) }}"
     - name: print pr number
       run: echo "${{ github.event.pull_request.number }}"
-    - name: Inject slug/short variables
-      uses: rlespinasse/github-slug-action@v4.4.1
     - name: Set environment variables
       run: |
         export TEST_VAR='test value'
@@ -71,7 +61,11 @@ jobs:
         pwd
         ls -al
         ls -al ../tmp
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: print github context from ansible
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: ansible-playbook -i localhost, -e "$GITHUB_CONTEXT" playbook.yml
     - name: list cur and ../tmp dir
       run: |
         pwd
