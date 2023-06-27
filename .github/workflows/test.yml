@@ -65,7 +65,7 @@ jobs:
     - name: print github context from ansible
       env:
         GITHUB_CONTEXT: >
-         ${{ toJson(github) }}
+          ${{ toJson(github) }}
       run: >
         ansible-playbook -i localhost, -e GITHUB="$GITHUB_CONTEXT" playbook.yml
     - name: list cur and ../tmp dir
