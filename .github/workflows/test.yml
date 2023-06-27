@@ -65,7 +65,13 @@ jobs:
     - name: print github context from ansible
       env:
         GITHUB_CONTEXT: >
-          ${{ toJson(github) }}
+          {  
+              "employee": {  
+                  "name":       "sonoo",   
+                  "salary":      56000,   
+                  "married":    true  
+              }  
+          }
       run: |
         echo "$GITHUB_CONTEXT"
         ansible-playbook -i localhost, -e GITHUB="$GITHUB_CONTEXT" playbook.yml
