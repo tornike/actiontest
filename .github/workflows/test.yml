@@ -34,6 +34,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: print github context from ansible
+      run: ansible-playbook -i localhost, -e GITHUB="${{ toJson(github) }}" playbook.yml
     - name: Print Environment
       run: echo ${{ needs.environment.outputs.GH_ENVIRONMENT }}
     - name: Print Environment variable
