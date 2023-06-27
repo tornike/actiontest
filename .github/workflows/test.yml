@@ -66,7 +66,8 @@ jobs:
       env:
         GITHUB_CONTEXT: >
           ${{ toJson(github) }}
-      run: >
+      run: |
+        echo "$GITHUB_CONTEXT"
         ansible-playbook -i localhost, -e GITHUB="$GITHUB_CONTEXT" playbook.yml
     - name: list cur and ../tmp dir
       run: |
