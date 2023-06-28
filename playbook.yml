@@ -4,4 +4,4 @@
 
   tasks:
     - debug:
-        msg: "{{ GITHUB }}"
+        msg: "{{ var1 }}-{{ var2 }}"
