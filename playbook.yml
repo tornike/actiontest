@@ -5,3 +5,7 @@
   tasks:
     - debug:
         msg: "{{ GITHUB_VARS }}"
+    - debug:
+        msg: "{{ GITHUB_VARS.VAR1 }}"
+    - debug:
+        msg: "{{ GITHUB_VARS.VAR2 }}"
