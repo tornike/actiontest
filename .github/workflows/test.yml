@@ -67,7 +67,7 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         echo "$GITHUB_CONTEXT"
-        ansible-playbook -i localhost, -e '{ "GITHUB_VARS": ${{ toJson(vars) }} }' playbook.yml
+        ansible-playbook -i localhost, -e '{ "GITHUB_VARS": ${{ toJson(github) }} }' playbook.yml
     - name: list cur and ../tmp dir
       run: |
         pwd
