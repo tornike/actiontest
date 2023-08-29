@@ -1,0 +1,12 @@
+name: Reusable
+
+on:
+  workflow_call:
+
+jobs:
+  dummy-action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo '${{ toJson(github) }}'
+      - run: sleep 30
