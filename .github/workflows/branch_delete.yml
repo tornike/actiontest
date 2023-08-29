@@ -24,3 +24,7 @@ jobs:
     - run: git status
 
     - run: echo '${{ toJson(github.event) }}'
+
+  call-workflow:
+    uses: ./.github/workflows/reusable.yml
+    secrets: inherit
