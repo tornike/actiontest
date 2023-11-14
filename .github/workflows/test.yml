@@ -11,6 +11,17 @@ on:
   push:
 
 jobs:
+  matrix-test:
+    strategy: 
+      matrix:
+        version:
+          - 1
+          - 2
+    concurrency: matrix-${{ matrix.version }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Hello
+
   environment:
     runs-on: ubuntu-latest
     
