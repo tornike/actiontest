@@ -1,4 +1,4 @@
-name: Test anything
+name: Test anything ${{ inputs.environment }}
 
 on:
   workflow_dispatch:
