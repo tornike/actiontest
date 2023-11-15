@@ -1,4 +1,5 @@
-name: Test anything ${{ secrets.TEST_ENV_VALUE }}
+name: Test anything
+run-name: test-${{ secrets.TEST_ENV_VALUE }}
 
 on:
   workflow_dispatch:
