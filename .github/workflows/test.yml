@@ -1,5 +1,5 @@
 name: Test anything
-run-name: test-${{ secrets.TEST_ENV_VALUE }}
+run-name: test-${{ github.event }}
 
 on:
   workflow_dispatch:
