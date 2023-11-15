@@ -1,4 +1,4 @@
-name: Test anything ${{ github.event }}
+name: Test anything ${{ secrets.TEST_ENV_VALUE }}
 
 on:
   workflow_dispatch:
