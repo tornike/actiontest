@@ -31,7 +31,7 @@ jobs:
     - name: hostnames
       id: hostnames
       run: |
-        echo "hostnames=$(yq -r .hostnames aws_ec2.yml)" >> $GITHUB_OUTPUT
+        echo "hostnames=$(yq -r -o=json .hostnames aws_ec2.yml)" >> $GITHUB_OUTPUT
     outputs:
       GH_ENVIRONMENT: ${{ steps.input_check.outputs.gh_env }}
       HOSTNAMES: ${{ steps.hostnames.outputs.hostnames }}
@@ -41,7 +41,7 @@ jobs:
     strategy: 
       matrix:
         version:
-          - ip-addresses
+          ${{ needs.environment.outputs.hostnames | fromJson }}
     runs-on: ubuntu-latest
     steps:
       - run: echo matrix-${{ matrix.version }}
