@@ -26,21 +26,24 @@ jobs:
           echo "::set-output name=gh_env::dev"
         fi
         
+    - uses: actions/checkout@v3
+    
+    - name: hostnames
+      id: hostnames
+      run: |
+        echo "hostnames=$(yq -r .hostnames aws_ec2.yml)" >> $GITHUB_OUTPUT
     outputs:
       GH_ENVIRONMENT: ${{ steps.input_check.outputs.gh_env }}
+      HOSTNAMES: ${{ steps.hostnames.outputs.hostnames }}
 
   matrix-test:
     needs: environment
     strategy: 
       matrix:
-        version:
-          - 1
-          - 2
-          - ${{ needs.environment.outputs.GH_ENVIRONMENT }}
-    concurrency: matrix-${{ matrix.version }}
+        version: ${{ needs.environment.outputs.HOSTNAMES }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo Hello
+      - run: echo matrix-${{ matrix.version }}
       
   print:
     needs: environment
