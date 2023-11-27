@@ -41,7 +41,7 @@ jobs:
     strategy: 
       matrix:
         version:
-          ${{ needs.environment.outputs.HOSTNAMES }}
+          - ip-addresses
     runs-on: ubuntu-latest
     steps:
       - run: echo matrix-${{ matrix.version }}
