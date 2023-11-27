@@ -40,8 +40,7 @@ jobs:
     needs: environment
     strategy: 
       matrix:
-        version:
-          ${{ needs.environment.outputs.hostnames | fromJson }}
+        version: ${{ fromJson(needs.environment.outputs.hostnames) }}
     runs-on: ubuntu-latest
     steps:
       - run: echo matrix-${{ matrix.version }}
