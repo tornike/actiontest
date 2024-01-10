@@ -24,6 +24,7 @@ jobs:
     - name: Print github event
       run: |
         echo "${{ toJson(github.event) }}"
+        echo "${{ github.event.action == 'published' && github.event.prerelease }}"
         
     - name: Set environment as variable
       id: input_check
