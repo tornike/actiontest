@@ -17,7 +17,8 @@ on:
 
 jobs:
   environment:
-    if: github.event.action == 'published' && github.event.release.prerelease
+    if: github.event.action == 'released' ||
+        github.event.action == 'published' && github.event.release.prerelease
     runs-on: ubuntu-latest
     
     steps:
