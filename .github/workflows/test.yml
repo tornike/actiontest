@@ -1,5 +1,5 @@
 name: Test anything
-run-name: test-${{ github.event }}
+run-name: test-${{ github.event_name }}
 
 on:
   # workflow_dispatch:
