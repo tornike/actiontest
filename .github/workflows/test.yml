@@ -19,7 +19,7 @@ jobs:
     steps:
     - name: Print github event
       run: |
-        echo "${{ toJson(github.event.release) }}"
+        echo "${{ toJson(github.event) }}"
         
     - name: Set environment as variable
       id: input_check
