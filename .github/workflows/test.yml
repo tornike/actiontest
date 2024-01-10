@@ -11,6 +11,9 @@ on:
   #   branches: main
   # push:
   release:
+    types:
+      - published
+      - released
 
 jobs:
   environment:
