@@ -17,14 +17,14 @@ on:
 
 jobs:
   environment:
-    # if: ${{ github.event.action == 'published' && github.event.prerelease }}
+    if: github.event.action == 'published' && github.event.release.prerelease
     runs-on: ubuntu-latest
     
     steps:
     - name: Print github event
       run: |
         echo "${{ toJson(github.event) }}"
-        echo "${{ github.event.action == 'published' && github.event.prerelease }}"
+        echo "${{ github.event.action == 'published' && github.event.release.prerelease }}"
         
     - name: Set environment as variable
       id: input_check
