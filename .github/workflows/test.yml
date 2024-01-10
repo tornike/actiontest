@@ -11,14 +11,16 @@ on:
   #   branches: main
   # push:
   release:
-    types:
-      - created
 
 jobs:
   environment:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Print github event
+      run: |
+        echo ${{ fromJson(github.event.release) }}
+        
     - name: Set environment as variable
       id: input_check
       run: |
