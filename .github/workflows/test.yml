@@ -12,7 +12,7 @@ on:
   push:
   release:
     types:
-      - prereleased
+      - created
 
 jobs:
   environment:
