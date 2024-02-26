@@ -9,7 +9,7 @@ on:
   #       required: true
   # pull_request:
   #   branches: main
-  # push:
+  push:
   release:
     types:
       - published
@@ -22,6 +22,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Check jinja2
+      run: |
+        pip show jinja2
+        python3 -m jinja2
+    
     - name: Print github event
       run: |
         echo "${{ toJson(github.event) }}"
