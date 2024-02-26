@@ -16,9 +16,7 @@ on:
       - released
 
 jobs:
-  environment:
-    if: github.event.action == 'released' ||
-        github.event.action == 'published' && github.event.release.prerelease
+  jinja2:
     runs-on: ubuntu-latest
     
     steps:
@@ -26,7 +24,13 @@ jobs:
       run: |
         pip show jinja2
         python3 -m jinja2
+        
+  environment:
+    if: github.event.action == 'released' ||
+        github.event.action == 'published' && github.event.release.prerelease
+    runs-on: ubuntu-latest
     
+    steps:    
     - name: Print github event
       run: |
         echo "${{ toJson(github.event) }}"
