@@ -2,18 +2,14 @@ name: Test anything
 run-name: test-${{ github.event_name }}
 
 on:
-  # workflow_dispatch:
-  #   inputs:
-  #     environment:
-  #       type: environment
-  #       required: true
-  # pull_request:
-  #   branches: main
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        required: true
+  pull_request:
+    branches: main
   push:
-  release:
-    types:
-      - published
-      - released
 
 jobs:
   jinja2:
@@ -26,8 +22,6 @@ jobs:
         python3 -m jinja2
         
   environment:
-    if: github.event.action == 'released' ||
-        github.event.action == 'published' && github.event.release.prerelease
     runs-on: ubuntu-latest
     
     steps:    
