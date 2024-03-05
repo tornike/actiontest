@@ -1,0 +1,13 @@
+name: Release Test
+
+on:
+  release:
+
+jobs:        
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:    
+    - name: Print github event
+      run: |
+        echo "${{ toJson(github.event) }}"
