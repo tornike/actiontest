@@ -1,0 +1,16 @@
+name: Test PRs
+
+on:
+  pull_request:
+    branches: main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Event
+        run: echo "${{ toJson(github.event) }}"
+        
+      - name: Git ref
+        run: echo ${{ github.ref_name }}
