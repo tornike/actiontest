@@ -17,7 +17,7 @@ jobs:
       ubuntu:
         image: ubuntu
         options: >-
-          --entrypoint "/bin/bash -c 'sleep 5 && exit 0'"
+          --entrypoint /bin/bash -c "sleep 5"
     runs-on: ubuntu-latest
     
     steps:
