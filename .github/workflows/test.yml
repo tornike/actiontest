@@ -13,6 +13,11 @@ on:
 
 jobs:
   jinja2:
+    services:
+      ubuntu:
+        image: ubuntu
+        options: >-
+          --entrypoint "/bin/date"
     runs-on: ubuntu-latest
     
     steps:

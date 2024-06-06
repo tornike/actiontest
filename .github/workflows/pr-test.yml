@@ -15,6 +15,9 @@ jobs:
       - name: Git ref
         run: echo ${{ github.ref_name }}
 
+      - name: github context
+        run: echo "${{ toJson(github) }}"
+
       - uses: actions/checkout@v4
 
       - name: Cache Docker Buildx
