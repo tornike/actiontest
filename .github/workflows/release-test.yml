@@ -2,12 +2,18 @@ name: Release Test
 
 on:
   release:
+    types:
+      - published
+      - released
 
 jobs:        
   test:
     runs-on: ubuntu-latest
     
     steps:    
+    - name: Print ref
+      run: echo "${{ github.ref_name }}"
+      
     - name: Print github event
       run: |
         echo "${{ toJson(github.event) }}"
