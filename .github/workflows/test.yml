@@ -29,12 +29,16 @@ jobs:
   environment:
     runs-on: ubuntu-latest
     
-    steps:    
+    steps:
+    - name: Print git ref or base ref
+      run: |
+        echo "${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}"
+        
     - name: Print github event
       run: |
         echo "${{ toJson(github.event) }}"
         echo "${{ github.event.action == 'published' && github.event.release.prerelease }}"
-        
+    
     - name: Set environment as variable
       id: input_check
       run: |
